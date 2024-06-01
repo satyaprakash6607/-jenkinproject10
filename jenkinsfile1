@@ -1,32 +1,23 @@
-pipeline
-{
-tools
-{
-jdk'JAVA_HOME'
-maven'M2_HOME'
-}
-agent any
-stages
-{
-stage("checkout"){
-steps{
-git 'https://github.com/satyaprakash6607/jenkins_project8.git'
-}
-}
-stage("compile"){
-steps{
-sh 'mvn compile'
-}
-}
-stage("test"){
-steps{
-sh 'mvn test'
-}
-}
-stage("package"){
-steps{
-sh 'mvn package'
-}
-}
-}
-}
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building...'
+                // Insert your build command here
+                // For example: sh 'make build'
+                sh 'echo "Build step"'
+            }
+        }
+        
+        stage('Test') {
+            steps {
+                echo 'Testing...'
+                // Insert your test command here
+                // For example: sh 'make test'
+                sh 'echo "Test step"'
+            }
+        }
+		}
+		}
